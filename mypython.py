@@ -1,13 +1,15 @@
-
+'''
 balance = 0
 
 while True:
-    print("Press 1 for deposit")
-    print("Press 2 for withraw")
+    
+    print("\nPress 1 for deposit")
+    print("Press 2 for withdraw")
     print("Press 3 for check balance")
-    print("Press 4 to Exit")
+    print("Press 4 to Exit\n")
     
     user_input = int(input("Please Enter Any: "))
+    
     
     if user_input == 1:
         deposit = float(input("Enter amount to deposit:"))
@@ -21,11 +23,11 @@ while True:
             print("The amount to deposit must be more than Php 0.00")
     
     elif user_input == 2:
-        withraw = float(input("Enter amount to Withraw: "))
+        withdraw = float(input("Enter amount to Withraw: "))
         
-        if withraw <= balance:
-            balance -= withraw
-            print (f"You have successfully withrawed Php {withraw}") 
+        if withdraw <= balance:
+            balance -= withdraw
+            print (f"You have successfully withdrawed Php {withdraw}") 
             print(f"The remaining balance is Php {balance}")
         
         elif balance == 0:
@@ -43,5 +45,51 @@ while True:
     
     else:
         print("Invalid Input")
+'''
 
 
+def check_balance(balance):
+    print (f"Your balance is Php. {balance}")
+
+def deposit(balance):
+    amount_to_deposit = float(input ("Enter amount to deposit: "))
+    balance += amount_to_deposit 
+    return balance
+
+
+def withdraw(balance):
+    amount_to_withdraw = float(input ("Enter Amount to withdraw: "))
+    if amount_to_withdraw > balance:
+        print ("Insufficinet amount.")
+    else:
+        balance -= amount_to_withdraw
+        print (f"You have succesfully withdrawed Php {balance}")
+        print(f"The new balance is Php {balance}")
+    return balance
+
+
+balance = 0
+while True:
+    print("\nPress 1 for Check Balance")
+    print("Press 2 for Deposit")
+    print("Press 3 for Withdraw")
+    print("Press 4 to Exit\n")
+
+    user_input = int(input("Please Enter Any: "))
+
+    if user_input == 1:
+        check_balance(balance)
+
+    elif user_input == 2:
+        balance = deposit(balance)
+
+    elif user_input == 3:
+        balance = withdraw(balance)
+
+    elif user_input == 4:
+        break
+
+    else:
+        print ("Invalid Input")
+
+print("Thank you for using this.")
