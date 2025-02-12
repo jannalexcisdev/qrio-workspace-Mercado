@@ -1,7 +1,7 @@
 psql -U postgres
 create schema qrio;
     ALTER SCHEMA qrio OWNER TO jann;
-CREATE USER jann WITH SUPERUSER PASSWORD 'admin';
+CREATE USER jann WITH SUPERUSER PASSWORD '@dmin098';
 
 drop table person;
 
